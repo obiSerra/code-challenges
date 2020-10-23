@@ -3,8 +3,6 @@
             [codewars.consecutive_k_primes :refer :all]))
 
 
-
-
 (defn do-test [k xs ans]
   (is (= (consec-kprimes k xs) ans)))
 
