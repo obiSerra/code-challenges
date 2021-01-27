@@ -2,11 +2,12 @@
   (:require [clojure.string :as string]))
 
 
-(defn get-input [day]
-  (-> (str "resources/input/day" day ".txt")
-      slurp
-      (string/split-lines)))
-
+(defn get-input 
+  ([day] (get-input day false))
+  ([day test?]
+   (-> (str "resources/input/day" day (if test? "-test" "") ".txt")
+       slurp
+       (string/split-lines))))
 
 (defn get-input-int [day]
   (->> day
