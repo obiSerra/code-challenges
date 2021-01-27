@@ -2,24 +2,17 @@
 
 (def ops '("+" "-" "*" "/"))
 
-(defn tokenize []
-
-)
+(defn tokenize [])
 
 (defn calc [expression]
 
+  0)
 
-  0
-)
-
-
-(comment 
+(comment
   ;;2.0
-  (calc "1+1") 
-
+  (calc "1+1")
 
   (re-find #"\+" "1+1")
 
 ;;
-
   )
