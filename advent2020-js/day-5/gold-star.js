@@ -1,0 +1,48 @@
+const helpers = require("../helpers/helpers.js");
+
+(async () => {
+  let input = await helpers.readInput(5);
+  input = input.split("\n");
+
+  const binSearch = (operations, up, down, l) => {
+    let cUp = l;
+    let cDown = 0;
+    const instructions = operations.split("");
+    for (let inst of instructions) {
+      const middle = Math.floor((cUp - cDown) / 2);
+      if (inst === up) {
+        cDown = middle + cDown + 1;
+      } else if (inst === down) {
+        cUp = cDown + middle;
+      }
+    }
+
+    return cUp;
+  };
+
+  const seatId = input => {
+    const row = binSearch(input, "B", "F", 127);
+    const col = binSearch(input, "R", "L", 7);
+    return row * 8 + col;
+  };
+
+  const solution = inputs => {
+    let seats = [];
+    for (let ipt of inputs) {
+      seats.push(seatId(ipt));
+    }
+    seats = seats.sort();
+    let current = 1;
+    const nears = [];
+    while (current < seats.length - 1) {
+      if (seats[current + 1] - seats[current] === 2 || seats[current] - seats[current - 1] === 2) {
+        nears.push(seats[current]);
+      }
+
+      current++;
+    }
+    return nears[0] + ((nears[1] - nears[0]) / 2);
+  };
+
+  console.log(solution(input));
+})();
