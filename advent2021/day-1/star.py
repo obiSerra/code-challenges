@@ -31,5 +31,5 @@ def solution_1(input):
     return inc
 
 
-
-print(solution_1(input))
+if __name__ == "__main__":
+    print(solution_1(input))

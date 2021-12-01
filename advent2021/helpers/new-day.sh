@@ -22,7 +22,8 @@ def solution(input):
     pass
 
 
-print(solution(input))"
+if __name__ == '__main__':
+    print(solution(input))"
 
 
 echo "$FILE_CONTENT" > "day-$1/star.py"

@@ -1,5 +1,5 @@
 from os import path
-import math
+from star import solution_1 as find_inc
 
 input = [
     '199',
@@ -22,16 +22,6 @@ with open(final_path) as file:
     input = [line.rstrip() for line in lines]
 
 
-def find_inc(input):
-    last = None
-    inc = 0
-    for i in input:
-        if last is not None and int(i) > last:
-            inc += 1
-        last = int(i)
-    return inc
-
-
 def solution(input):
     slices = {}
     for i in range(0, len(input)):
@@ -44,4 +34,5 @@ def solution(input):
     return find_inc(slices.values())
 
 
-print(solution(input))
+if __name__ == "__main__":
+    print(solution(input))
