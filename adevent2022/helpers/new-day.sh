@@ -19,7 +19,7 @@ with open(final_path) as file:
     input = [line.strip() for line in lines]
 
 def solution(input):
-    pass
+    return input
 
 
 if __name__ == '__main__':
